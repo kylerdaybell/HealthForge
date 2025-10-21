@@ -1,0 +1,61 @@
+# 'version' line removed
+
+services:
+  #--- The PHP/Laravel Service ---#
+  app:
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    container_name: healthforge-app
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - healthforge-net
+    env_file:
+      - ./src/.env # <-- Add this so php-fpm can also read the env
+
+  #--- The Nginx Web Server Service ---#
+  web:
+    image: nginx:alpine
+    container_name: healthforge-web
+    restart: unless-stopped
+    ports:
+      - "9980:80" # <-- This is corrected
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/web/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - healthforge-net
+
+  #--- The MySQL Database Service ---#
+  db:
+    image: mysql:8.0
+    container_name: healthforge-db
+    restart: unless-stopped
+    ports:
+      - "3320:3306"
+    env_file:
+      - ./src/.env # This will now be the ONLY source of truth
+    #
+    # The 'environment:' block has been completely REMOVED.
+    #
+    volumes:
+      - healthforge-db-data:/var/lib/mysql
+    networks:
+      - healthforge-net
+
+#--- Docker Networks ---#
+networks:
+  healthforge-net:
+    driver: bridge
+
+#--- Docker Volumes ---#
+volumes:
+  healthforge-db-data:
+    driver: local
