@@ -1,0 +1,214 @@
+/* --- Global & Font --- */
+body, html {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f8f8; /* Light gray background */
+}
+
+.w3-content {
+    max-width: 1200px;
+}
+
+/* --- Gradient Title --- */
+.gradient-text {
+    font-weight: 700;
+    background: linear-gradient(90deg, #f06, #9f6, #06f, #f06);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-flow 10s linear infinite;
+}
+
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* --- Custom W3 Addons --- */
+.w3-round-xlarge {
+    border-radius: 16px;
+}
+
+/* --- Dashboard Elements --- */
+.quick-add-btn {
+    border: 2px solid #007aff;
+    color: #007aff;
+    font-weight: 600;
+    padding: 10px 16px;
+    text-align: center;
+}
+.quick-add-btn:hover {
+    background-color: #007aff;
+    color: white;
+}
+
+/* --- Styles for Quick Action buttons --- */
+.action-btn {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* This automatically adds space between your action buttons */
+.action-btn:not(:last-child) {
+    margin-bottom: 16px; /* Matches W3.CSS's default margin */
+}
+  
+/* --- Guest/Auth Page Elements --- */
+.login-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+.login-card {
+    max-width: 420px;
+    width: 100%;
+}
+
+.w3-input-auth {
+    border-radius: 8px !important;
+    border: 1px solid #ddd !important;
+    padding: 12px !important;
+    font-size: 16px !important;
+}
+.w3-input-auth:focus {
+    border-color: #007aff !important; /* Apple blue */
+    box-shadow: 0 0 0 2px rgba(0,122,255,0.2);
+    outline: none;
+}
+
+.w3-label-auth {
+    font-weight: 500;
+    color: #333;
+}
+
+.w3-button-auth {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007aff; /* Apple blue */
+}
+.w3-button-auth:hover {
+    background-color: #005ecb;
+}
+
+/* --- Error Messages --- */
+.error-message {
+    color: #d93025; /* Red for errors */
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+
+/*
+ * Styles for the Welcome/Landing Page
+ * (Moved from welcome.blade.php)
+ */
+
+body.welcome {
+    background-color: #f5f5f7; /* A soft, Apple-like off-white */
+    color: #1d1d1f; /* Apple's primary text color */
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* --- The Stunning Rainbow Gradient Title --- */
+.healthforge-title {
+    font-size: 8vw; /* Responsive font size */
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin-bottom: 0;
+    /* The gradient magic */
+    background: linear-gradient(90deg, #ff8a00, #e52e71, #6b21a8, #2563eb, #00c2a8, #facc15);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: gradient-flow-welcome 10s ease infinite;
+    background-size: 300% 300%;
+}
+
+@media (min-width: 992px) {
+    .healthforge-title {
+        font-size: 6rem; /* Cap the font size on larger screens */
+    }
+}
+
+/* --- Gradient Animation --- */
+@keyframes gradient-flow-welcome {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Hero Section Text --- */
+.hero-headline {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 24px;
+    color: #1d1d1f;
+}
+
+.hero-subheadline {
+    font-size: 1.25rem;
+    color: #6e6e73; /* Apple's secondary text color */
+    max-width: 600px;
+    margin: 16px auto 32px;
+    line-height: 1.6;
+}
+
+/* --- Stunning Call-to-Action Button --- */
+.cta-button {
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 980px; /* A very rounded pill shape */
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0077ed;
+    transform: scale(1.05);
+}
+
+/* --- Feature Cards --- */
+.feature-section {
+    margin-top: 80px;
+    max-width: 1200px;
+}
+
+.feature-card {
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 24px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 200px;
+}
+        
+.feature-card h3 {
+    font-weight: 700;
+    color: #1d1d1f;
+}
+
+.feature-card p {
+    color: #6e6e73;
+    line-height: 1.6;
+}
